@@ -1,10 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 60000;
+const unsigned int interval = 10000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "???";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -70,5 +70,6 @@ static const struct arg args[] = {
 	{wifi_perc,     "wifi: %s% | "  ,   "wlp0s20f3"         },
 	{netspeed_tx,   "%s/"           ,   "wlp0s20f3"         },
 	{netspeed_rx,   "%s | "         ,   "wlp0s20f3"         },
+    {run_command,   "%s | "         ,   "curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo"  },
 	{datetime,      "%s"            ,   "%Y/%m/%d - %H:%M"  },
 };
