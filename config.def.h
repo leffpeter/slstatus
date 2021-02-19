@@ -1,10 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 10000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "???";
+static const char unknown_str[] = "?";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -63,13 +63,13 @@ static const char unknown_str[] = "???";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-    {cpu_perc,      "cpu: %s% | "   ,   NULL                },
-	{ram_used,      "ram: %s/"      ,   NULL                },
+    {cpu_perc,      " cpu: %s% | " ,   NULL                },
+	{ram_used,      "mem: %s/"      ,   NULL                },
 	{ram_free,      "%s "           ,   NULL                },
 	{ram_perc,      "(%s%) | "      ,   NULL                },
 	{wifi_perc,     "wifi: %s% | "  ,   "wlp0s20f3"         },
-	{netspeed_tx,   "%s/"           ,   "wlp0s20f3"         },
+	{netspeed_tx,   "net: %s/"      ,   "wlp0s20f3"         },
 	{netspeed_rx,   "%s | "         ,   "wlp0s20f3"         },
-    {run_command,   "%s | "         ,   "curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo"  },
+    {run_command,   "%s | "         ,   "curl -Ss 'https://wttr.in/Ribadumia?format=\"%C+%t\"' | xargs echo"      },
 	{datetime,      "%s"            ,   "%Y/%m/%d - %H:%M"  },
 };
